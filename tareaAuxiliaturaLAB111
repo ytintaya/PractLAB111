@@ -1,0 +1,73 @@
+
+#User: yashico Password: 8246
+usuario = "@"
+password = 0
+while usuario != "yashico" or password != "2846":
+    usuario = input("Nombre de Usuario:\n")
+    password = input("Ingresa la Contraseña:\n")
+print("Bienvenido al sistema!!!")
+
+#FUNCIONES DE LAS OPERACIONES
+def Menu():
+	#MENU DE OPCIONES
+	print("**:::::::::::::::::::::::::::::::::::::::::::::::::::::**")
+	print("**::Ingrese el numero de operacion que desee realizar::**")
+	print("**:::::::::::::::::::::::::::::::::::::::::::::::::::::**")
+	print("-------------------------------")
+	print("| Primera Operacion: ->  1     |")
+	print("| Segunda Operacion: ->  2     |")
+	print("| Tercera Operacion: ->  3     |")
+	print("| Cuarta Operacion:  ->  4     |") 
+	print("| Salir:             ->  s     |")
+	print("-------------------------------")
+	print("** ::::::::::::::::::::::::: **") 
+	print("\n")
+def Cal():
+    """Funcion Para Calcular Operaciones"""
+    Menu()
+    opc = int(input("Selecione Opcion\n"))
+    while (opc >0 and opc <5):
+        #first operation MOD Y DIV sin operadores
+        if (opc==1):
+            x = int(input("Ingrese Numero\n"))
+            y = int(input("Ingrese Otro Numero\n"))
+            cociente = 0
+            while x >= y:
+                x = x - y
+                cociente = cociente + 1
+            print ("La division entera es:", cociente)
+            print ("El modulo es:", x)
+            opc = int(input("Selecione Opcion\n"))
+        #second operation DIVISORES
+        elif(opc==2):
+            numero = int(input("Ingrese Numero\n"))
+            contador = 0
+            print ("Los divisores de", numero,"son:")
+            for divisor in range(1,numero+1):
+                if (numero % divisor) == 0 :
+                    print(divisor,"es divisor")
+                    contador = contador + 1
+            print("El numero",numero,"tiene",contador,"divisores")
+            opc = int(input("Selecione Opcion\n"))
+        #third operation CAPICUA
+        elif(opc==3):
+            opc = int(input("Selecione Opcion\n"))
+        #fourth operation CAMBIO DE BASE
+        elif(opc==4):
+            def convertir_entero_base(num, base):
+                conversion_cadena = "0123456789ABCDEF"
+                if num < base:
+                    return conversion_cadena[num]
+                else:
+                    return convertir_entero_base(num//base, base) + conversion_cadena[num % base]
+            num = int(input("Ingrese Numero\n"))
+            base = int(input("Ingrese Base a la que se desea llevar\n"))
+            res = convertir_entero_base(num, base)
+            print("El numero", num,"en base", base,"es:", res)
+            opc = int(input("Selecione Opcion\n"))
+    #salir
+    print ("THANK YOU FOR USING THIS PROGRAM <3")
+Cal()
+
+#por mas vultas que le di no se me ocurria como realizar el punto 2 y 4 sin llegar a utilizar "%" y "/"
+#hice lo que pude, mas en cambio lograre de completar el ejercicio completo
